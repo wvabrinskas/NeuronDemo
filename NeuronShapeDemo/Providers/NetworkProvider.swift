@@ -132,15 +132,15 @@ public final class NetworkProvider: NetworkProviding, Logger {
 
       let network = Sequential {
         [
-          Flatten(inputSize: self.inputSize), // we need a flatten layer because the images are a 2D array
-          Dense(512,
-                inputs: self.inputSize.rows * self.inputSize.columns,
-                initializer: initializer),
-          ReLu(),
-          Dense(64, initializer: initializer),
-          ReLu(),
-          Dense(ShapeType.allCases.count, initializer: initializer),
-          Softmax()
+//          Flatten(inputSize: self.inputSize), // we need a flatten layer because the images are a 2D array
+//          Dense(512,
+//                inputs: self.inputSize.rows * self.inputSize.columns,
+//                initializer: initializer),
+//          ReLu(),
+//          Dense(64, initializer: initializer),
+//          ReLu(),
+//          Dense(ShapeType.allCases.count, initializer: initializer),
+//          Softmax()
         ]
       }
       
