@@ -28,7 +28,6 @@ public struct DrawView: View {
   @Binding var result: [Float]
   var viewModel: DrawViewModel
   
-  @State private var points: [CGPoint] = []
   @State private var values: [Float] = []
   @State private var debounce: Int = 1
   
@@ -53,6 +52,7 @@ public struct DrawView: View {
               viewModel.clear = true
             }))
       
+      // draw vertical lines
       ForEach(0..<Int(viewModel.gridSize.width + 1), id: \.self) { x in
         Color.white
           .opacity(0.5)
@@ -60,6 +60,7 @@ public struct DrawView: View {
           .offset(x: CGFloat(viewModel.pixelSize) * CGFloat(x) - (size.width / 2), y: 0)
       }
       
+      // draw horizontal lines
       ForEach(0..<Int(viewModel.gridSize.height + 1), id: \.self) { x in
         Color.white
           .opacity(0.5)
@@ -68,12 +69,15 @@ public struct DrawView: View {
           .rotationEffect(.degrees(90))
       }
       
+      // draw pixels if needed
       ForEach(0..<values.count, id: \.self) { v in
-        Color.white
-          .opacity(CGFloat(values[v]))
-          .frame(width: CGFloat(viewModel.pixelSize), height: CGFloat(viewModel.pixelSize))
-          .position(.init(x: CGFloat(v).truncatingRemainder(dividingBy: viewModel.gridSize.height) * CGFloat(viewModel.pixelSize),
-                          y: (CGFloat(v) / viewModel.gridSize.width) * CGFloat(viewModel.pixelSize)))
+        if values[v] > 0 {
+          Color.white
+            .opacity(CGFloat(values[v]))
+            .frame(width: CGFloat(viewModel.pixelSize), height: CGFloat(viewModel.pixelSize))
+            .position(.init(x: CGFloat(v).truncatingRemainder(dividingBy: viewModel.gridSize.height) * CGFloat(viewModel.pixelSize) + CGFloat(viewModel.pixelSize / 2),
+                            y: round(ceil((CGFloat(v) / viewModel.gridSize.width))) * CGFloat(viewModel.pixelSize) - CGFloat(viewModel.pixelSize / 2)))
+        }
       }
 
     }
@@ -85,6 +89,7 @@ public struct DrawView: View {
     
     .onChange(of: values) { oldValue, newValue in
       if debounce % debounceAmount == 0 {
+        // after debounce update the results
         result = newValue
         debounce = 1
       } else {
@@ -97,6 +102,7 @@ public struct DrawView: View {
     }
     .onChange(of: viewModel.clear) { oldValue, newValue in
       if newValue {
+        // reset values to 0 since we directly set a pixel in the array at an index
         values = [Float](repeating: 0, count: Int(viewModel.gridSize.width * viewModel.gridSize.height))
       }
     }
@@ -118,5 +124,5 @@ public struct DrawView: View {
 }
 
 #Preview {
-  DrawView(result: .constant([]), viewModel: .init())
+  DrawView(result: .constant([]), viewModel: .init(pixelSize: 12))
 }

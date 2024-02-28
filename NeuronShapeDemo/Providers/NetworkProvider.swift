@@ -26,7 +26,7 @@ public final class NetworkProvider: NetworkProviding, Logger {
   
   public lazy var viewModel: NetworkViewModel = .init(drawViewModel: .init(gridSize: CGSize(width: inputSize.columns,
                                                                                             height: inputSize.rows),
-                                                                           pixelSize: 8))
+                                                                           pixelSize: 12))
   
   private let inputSize: TensorSize =  .init(rows: 28, columns: 28, depth: 1)
   
@@ -92,6 +92,17 @@ public final class NetworkProvider: NetworkProviding, Logger {
   }
   
   // MARK: Private
+  private func buildQuickDrawData() {
+    /*
+     1. The dataset isn't particularly great because it expects perfect shapes each time. 
+        We could expand this to use the QuickDrawDataset from Google in the NeuronDatasets library.
+     
+     2. Use the QuickDrawDataset to pull in multiple different hand drawn shapes
+        This might mean creating multiple copies of the QuickDrawDataset to pull in the different drawings.
+     
+     3. Update the network to use convolutional layers for image recognition
+     */
+  }
 
   private func buildData() {
     let numberOfTraining = 200
