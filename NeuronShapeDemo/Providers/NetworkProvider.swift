@@ -72,7 +72,7 @@ public final class NetworkProvider: NetworkProviding, Logger {
     }
     
     Task.detached {
-      //self.viewModel.status.training = true
+      self.viewModel.status.training = true
       classifier.fit(dataset.training, dataset.validation)
     }
   }
@@ -145,7 +145,6 @@ public final class NetworkProvider: NetworkProviding, Logger {
         [
 //          Flatten(inputSize: self.inputSize), // we need a flatten layer because the images are a 2D array
 //          Dense(512,
-//                inputs: self.inputSize.rows * self.inputSize.columns,
 //                initializer: initializer),
 //          ReLu(),
 //          Dense(64, initializer: initializer),
@@ -184,6 +183,10 @@ public final class NetworkProvider: NetworkProviding, Logger {
                                   killOnAccuracy: true,
                                   threadWorkers: 8,
                                   log: false)
+      
+      classifier.onAccuracyReached = {
+        self.viewModel.status.training = false
+      }
       
       self.classifier = classifier
       

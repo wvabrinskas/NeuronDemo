@@ -15,6 +15,10 @@ struct NetworkView: View {
   
   var body: some View {
     VStack {
+      
+      Text(viewModel.status.ready ? "👍" : "🛑")
+        .font(.largeTitle)
+      
       if viewModel.status.training {
         ProgressView()
           .controlSize(.large)
@@ -60,10 +64,12 @@ struct NetworkView: View {
 
       Text(viewModel.text)
         .font(.title)
+        .fontDesign(.rounded)
         .padding(.top, 28)
       
       Text(viewModel.subtext)
         .font(.subheadline)
+        .fontDesign(.rounded)
     }
     .onChange(of: viewModel.drawnImage) { oldValue, newValue in
       network.predict()
@@ -77,6 +83,7 @@ struct NetworkView: View {
 #Preview {
   NetworkView(viewModel: .init(status: .init(training: false, ready: true),
                                text: "Loss: 0.2222",
-                               subtext: "Acc. 20.0 %"))
+                               subtext: "Acc. 20.0 %",
+                               drawViewModel: .init(pixelSize: 12)))
     .preferredColorScheme(.dark)
 }
