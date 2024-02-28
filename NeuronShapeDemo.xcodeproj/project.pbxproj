@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		913B33C72B8D6580001DA873 /* NeuronShapeDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33C62B8D6580001DA873 /* NeuronShapeDemoApp.swift */; };
+		913B33C92B8D6580001DA873 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33C82B8D6580001DA873 /* ContentView.swift */; };
+		913B33CB2B8D6581001DA873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913B33CA2B8D6581001DA873 /* Assets.xcassets */; };
+		913B33CE2B8D6581001DA873 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913B33CD2B8D6581001DA873 /* Preview Assets.xcassets */; };
+		913B33D72B8D6622001DA873 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33D62B8D6622001DA873 /* UIView+Extensions.swift */; };
+		913B33D92B8D6682001DA873 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33D82B8D6682001DA873 /* Shape.swift */; };
+		913B33DC2B8D6956001DA873 /* Neuron in Frameworks */ = {isa = PBXBuildFile; productRef = 913B33DB2B8D6956001DA873 /* Neuron */; };
+		913B33DF2B8D69E2001DA873 /* NeuronDatasets in Frameworks */ = {isa = PBXBuildFile; productRef = 913B33DE2B8D69E2001DA873 /* NeuronDatasets */; };
+		913B33E22B8D6AA5001DA873 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E12B8D6AA5001DA873 /* NetworkProvider.swift */; };
+		913B33E42B8D6B41001DA873 /* NetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E32B8D6B41001DA873 /* NetworkViewModel.swift */; };
+		913B33E62B8D6D23001DA873 /* NetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E52B8D6D23001DA873 /* NetworkView.swift */; };
+		913B33E82B8D6D4C001DA873 /* Environment+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E72B8D6D4C001DA873 /* Environment+Extensions.swift */; };
+		913B33EA2B8D6DDD001DA873 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E92B8D6DDD001DA873 /* View+Extensions.swift */; };
+		913B33ED2B8D701E001DA873 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33EC2B8D701E001DA873 /* DrawView.swift */; };
+		913B33F52B8EB99B001DA873 /* demo-shape-classifier.smodel in Resources */ = {isa = PBXBuildFile; fileRef = 913B33F42B8EB99B001DA873 /* demo-shape-classifier.smodel */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		913B33C32B8D6580001DA873 /* NeuronShapeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuronShapeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		913B33C62B8D6580001DA873 /* NeuronShapeDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuronShapeDemoApp.swift; sourceTree = "<group>"; };
+		913B33C82B8D6580001DA873 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		913B33CA2B8D6581001DA873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		913B33CD2B8D6581001DA873 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		913B33D62B8D6622001DA873 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		913B33D82B8D6682001DA873 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		913B33E12B8D6AA5001DA873 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		913B33E32B8D6B41001DA873 /* NetworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewModel.swift; sourceTree = "<group>"; };
+		913B33E52B8D6D23001DA873 /* NetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkView.swift; sourceTree = "<group>"; };
+		913B33E72B8D6D4C001DA873 /* Environment+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Extensions.swift"; sourceTree = "<group>"; };
+		913B33E92B8D6DDD001DA873 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		913B33EC2B8D701E001DA873 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		913B33F42B8EB99B001DA873 /* demo-shape-classifier.smodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "demo-shape-classifier.smodel"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		913B33C02B8D6580001DA873 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				913B33DF2B8D69E2001DA873 /* NeuronDatasets in Frameworks */,
+				913B33DC2B8D6956001DA873 /* Neuron in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		913B33BA2B8D6580001DA873 = {
+			isa = PBXGroup;
+			children = (
+				913B33C52B8D6580001DA873 /* NeuronShapeDemo */,
+				913B33C42B8D6580001DA873 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		913B33C42B8D6580001DA873 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				913B33C32B8D6580001DA873 /* NeuronShapeDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		913B33C52B8D6580001DA873 /* NeuronShapeDemo */ = {
+			isa = PBXGroup;
+			children = (
+				913B33F12B8E6835001DA873 /* Resources */,
+				913B33EB2B8D7016001DA873 /* Views */,
+				913B33E02B8D6A91001DA873 /* Providers */,
+				913B33D52B8D6616001DA873 /* Extensions */,
+				913B33D42B8D658E001DA873 /* Dataset */,
+				913B33C62B8D6580001DA873 /* NeuronShapeDemoApp.swift */,
+				913B33C82B8D6580001DA873 /* ContentView.swift */,
+				913B33E52B8D6D23001DA873 /* NetworkView.swift */,
+				913B33CA2B8D6581001DA873 /* Assets.xcassets */,
+				913B33CC2B8D6581001DA873 /* Preview Content */,
+			);
+			path = NeuronShapeDemo;
+			sourceTree = "<group>";
+		};
+		913B33CC2B8D6581001DA873 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				913B33CD2B8D6581001DA873 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		913B33D42B8D658E001DA873 /* Dataset */ = {
+			isa = PBXGroup;
+			children = (
+				913B33D82B8D6682001DA873 /* Shape.swift */,
+			);
+			path = Dataset;
+			sourceTree = "<group>";
+		};
+		913B33D52B8D6616001DA873 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				913B33D62B8D6622001DA873 /* UIView+Extensions.swift */,
+				913B33E72B8D6D4C001DA873 /* Environment+Extensions.swift */,
+				913B33E92B8D6DDD001DA873 /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		913B33E02B8D6A91001DA873 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				913B33E12B8D6AA5001DA873 /* NetworkProvider.swift */,
+				913B33E32B8D6B41001DA873 /* NetworkViewModel.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		913B33EB2B8D7016001DA873 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				913B33EC2B8D701E001DA873 /* DrawView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		913B33F12B8E6835001DA873 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				913B33F42B8EB99B001DA873 /* demo-shape-classifier.smodel */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		913B33C22B8D6580001DA873 /* NeuronShapeDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 913B33D12B8D6581001DA873 /* Build configuration list for PBXNativeTarget "NeuronShapeDemo" */;
+			buildPhases = (
+				913B33BF2B8D6580001DA873 /* Sources */,
+				913B33C02B8D6580001DA873 /* Frameworks */,
+				913B33C12B8D6580001DA873 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NeuronShapeDemo;
+			packageProductDependencies = (
+				913B33DB2B8D6956001DA873 /* Neuron */,
+				913B33DE2B8D69E2001DA873 /* NeuronDatasets */,
+			);
+			productName = NeuronShapeDemo;
+			productReference = 913B33C32B8D6580001DA873 /* NeuronShapeDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		913B33BB2B8D6580001DA873 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					913B33C22B8D6580001DA873 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 913B33BE2B8D6580001DA873 /* Build configuration list for PBXProject "NeuronShapeDemo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 913B33BA2B8D6580001DA873;
+			packageReferences = (
+				913B33DA2B8D6956001DA873 /* XCRemoteSwiftPackageReference "Neuron" */,
+				913B33DD2B8D69E2001DA873 /* XCRemoteSwiftPackageReference "NeuronDatasets" */,
+			);
+			productRefGroup = 913B33C42B8D6580001DA873 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				913B33C22B8D6580001DA873 /* NeuronShapeDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		913B33C12B8D6580001DA873 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				913B33CE2B8D6581001DA873 /* Preview Assets.xcassets in Resources */,
+				913B33F52B8EB99B001DA873 /* demo-shape-classifier.smodel in Resources */,
+				913B33CB2B8D6581001DA873 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		913B33BF2B8D6580001DA873 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				913B33D72B8D6622001DA873 /* UIView+Extensions.swift in Sources */,
+				913B33E42B8D6B41001DA873 /* NetworkViewModel.swift in Sources */,
+				913B33E62B8D6D23001DA873 /* NetworkView.swift in Sources */,
+				913B33C92B8D6580001DA873 /* ContentView.swift in Sources */,
+				913B33EA2B8D6DDD001DA873 /* View+Extensions.swift in Sources */,
+				913B33C72B8D6580001DA873 /* NeuronShapeDemoApp.swift in Sources */,
+				913B33ED2B8D701E001DA873 /* DrawView.swift in Sources */,
+				913B33D92B8D6682001DA873 /* Shape.swift in Sources */,
+				913B33E22B8D6AA5001DA873 /* NetworkProvider.swift in Sources */,
+				913B33E82B8D6D4C001DA873 /* Environment+Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		913B33CF2B8D6581001DA873 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		913B33D02B8D6581001DA873 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		913B33D22B8D6581001DA873 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NeuronShapeDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = 24H8222GR4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.NeuronShapeDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		913B33D32B8D6581001DA873 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NeuronShapeDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = 24H8222GR4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wvabrinskas.NeuronShapeDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		913B33BE2B8D6580001DA873 /* Build configuration list for PBXProject "NeuronShapeDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				913B33CF2B8D6581001DA873 /* Debug */,
+				913B33D02B8D6581001DA873 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		913B33D12B8D6581001DA873 /* Build configuration list for PBXNativeTarget "NeuronShapeDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				913B33D22B8D6581001DA873 /* Debug */,
+				913B33D32B8D6581001DA873 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		913B33DA2B8D6956001DA873 /* XCRemoteSwiftPackageReference "Neuron" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:wvabrinskas/Neuron.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.14;
+			};
+		};
+		913B33DD2B8D69E2001DA873 /* XCRemoteSwiftPackageReference "NeuronDatasets" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:wvabrinskas/NeuronDatasets.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.19;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		913B33DB2B8D6956001DA873 /* Neuron */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 913B33DA2B8D6956001DA873 /* XCRemoteSwiftPackageReference "Neuron" */;
+			productName = Neuron;
+		};
+		913B33DE2B8D69E2001DA873 /* NeuronDatasets */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 913B33DD2B8D69E2001DA873 /* XCRemoteSwiftPackageReference "NeuronDatasets" */;
+			productName = NeuronDatasets;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 913B33BB2B8D6580001DA873 /* Project object */;
+}
