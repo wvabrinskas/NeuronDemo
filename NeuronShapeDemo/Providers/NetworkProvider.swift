@@ -94,7 +94,7 @@ public final class NetworkProvider: NetworkProviding, Logger {
   // MARK: Private
   private func buildQuickDrawData() {
     /*
-     1. The dataset isn't particularly great because it expects perfect shapes each time. 
+     1. The current dataset isn't particularly great because it expects perfect shapes each time.
         We could expand this to use the QuickDrawDataset from Google in the NeuronDatasets library.
      
      2. Use the QuickDrawDataset to pull in multiple different hand drawn shapes
@@ -153,7 +153,7 @@ public final class NetworkProvider: NetworkProviding, Logger {
 //          Softmax()
         ]
       }
-      
+            
       let optimizer = Adam(importing ?? network, learningRate: 0.001)
       
       let reporter = MetricsReporter(frequency: 1,
