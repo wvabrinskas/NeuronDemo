@@ -16,7 +16,7 @@ struct NetworkView: View {
   var body: some View {
     VStack {
       
-      Text(viewModel.status.ready ? "👍" : "🛑")
+      Text(viewModel.status.ready && viewModel.status.training == false ? "👍" : "🛑")
         .font(.largeTitle)
       
       if viewModel.status.training {
@@ -50,7 +50,7 @@ struct NetworkView: View {
       }, label: {
         ZStack {
           RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-            .foregroundStyle(Color.purple)
+            .foregroundStyle(viewModel.status.ready == false || viewModel.status.training ? Color.gray : Color.purple)
           Image(systemName: "square.and.arrow.down.fill")
             .resizable()
             .aspectRatio(contentMode: .fit)

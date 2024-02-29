@@ -184,6 +184,16 @@ public final class NetworkProvider: NetworkProviding, Logger {
                                   threadWorkers: 8,
                                   log: false)
       
+      classifier.onEpochCompleted = {
+        let accuracy = optimizer.metricsReporter?.valAccuracy ?? 0
+        let loss = optimizer.metricsReporter?.valLoss ?? 0
+        
+        Task { @MainActor in
+          self.viewModel.text = String(format: "Loss: %.3f", loss)
+          self.viewModel.subtext = String(format: "Acc.: %.1f %", accuracy)
+        }
+      }
+      
       classifier.onAccuracyReached = {
         self.viewModel.status.training = false
       }
