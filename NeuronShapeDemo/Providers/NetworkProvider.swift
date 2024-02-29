@@ -24,11 +24,17 @@ public final class NetworkProvider: NetworkProviding, Logger {
   private var classifier: Classifier?
   private var dataset: (training: [DatasetModel], validation: [DatasetModel])?
   
+  private enum DatasetType {
+    case generatedShapes, quickDraw
+  }
+  
   public lazy var viewModel: NetworkViewModel = .init(drawViewModel: .init(gridSize: CGSize(width: inputSize.columns,
                                                                                             height: inputSize.rows),
                                                                            pixelSize: 12))
   
   private let inputSize: TensorSize =  .init(rows: 28, columns: 28, depth: 1)
+  
+  private let datasetType: DatasetType = .generatedShapes
   
   private enum ImportModel: String {
     case demoShapeClassifier = "demo-shape-classifier"
@@ -205,7 +211,12 @@ public final class NetworkProvider: NetworkProviding, Logger {
       
       Task { @MainActor in
         if self.dataset == nil {
-          self.buildData()
+          switch self.datasetType {
+          case .generatedShapes:
+            self.buildData()
+          case .quickDraw:
+            self.buildQuickDrawData()
+          }
         } else {
           self.viewModel.status.ready = true
           self.log(type: .success, message: "Ready!")
