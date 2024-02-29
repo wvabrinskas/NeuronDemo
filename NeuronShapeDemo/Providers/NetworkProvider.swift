@@ -26,6 +26,15 @@ public final class NetworkProvider: NetworkProviding, Logger {
   
   private enum DatasetType {
     case generatedShapes, quickDraw
+    
+    var outputCount: Int {
+      switch self {
+      case .generatedShapes:
+        return ShapeType.allCases.count
+      case .quickDraw:
+        return QuickDrawObject.allCases.count
+      }
+    }
   }
   
   public lazy var viewModel: NetworkViewModel = .init(drawViewModel: .init(gridSize: CGSize(width: inputSize.columns,
@@ -158,7 +167,7 @@ public final class NetworkProvider: NetworkProviding, Logger {
 //          ReLu(),
 //          Dense(64, initializer: initializer),
 //          ReLu(),
-//          Dense(ShapeType.allCases.count, initializer: initializer),
+//          Dense(self.datasetType.outputCount, initializer: initializer),
 //          Softmax()
         ]
       }
