@@ -48,7 +48,7 @@ public enum ShapeType: Int, CaseIterable {
     case .triangle:
       return UIView.triangle(size: size,
                              color: color,
-                             scale: CGFloat.random(in: 0.2...0.9)).asImage()
+                             scale: CGFloat.random(in: 0.5...1.2)).asImage()
     case .rectangle:
       return  UIView.rectangle(size: size,
                                color: color,

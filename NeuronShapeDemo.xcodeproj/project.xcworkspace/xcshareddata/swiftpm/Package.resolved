@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:wvabrinskas/NeuronDatasets.git",
       "state" : {
-        "revision" : "340fb756f2ab44830f023fca0423dc81923122d2",
-        "version" : "1.0.19"
+        "revision" : "1786d764161cc51c067e48360f5cf48731c9b1a9",
+        "version" : "1.0.20"
       }
     },
     {

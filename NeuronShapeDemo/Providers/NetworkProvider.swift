@@ -99,6 +99,7 @@ public final class NetworkProvider: NetworkProviding, Logger {
      
      2. Use the QuickDrawDataset to pull in multiple different hand drawn shapes
         This might mean creating multiple copies of the QuickDrawDataset to pull in the different drawings.
+        You will also have to change the number of output nodes
      
      3. Update the network to use convolutional layers for image recognition
      */
@@ -134,6 +135,8 @@ public final class NetworkProvider: NetworkProviding, Logger {
       self.viewModel.status.ready = true
       log(type: .success, message: "Ready!")
     }
+    
+    buildQuickDrawData()
   }
   
   private func buildNetwork(importing: Sequential? = nil) {

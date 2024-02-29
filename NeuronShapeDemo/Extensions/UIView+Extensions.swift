@@ -84,16 +84,17 @@ extension UIView {
     let path = CGMutablePath()
     
     path.move(to: CGPoint(x: 0, y: size.height))
-    path.addLine(to: CGPoint(x: (size.width / 2), y: size.height / 2 * 0.5))
-    path.addLine(to: CGPoint(x: size.width, y: size.height))
+    path.addLine(to: CGPoint(x: (size.width / 2) * CGFloat.random(in: 0.5...1), y: (size.height / 2) * CGFloat.random(in: 0.5...1)))
+    path.addLine(to: CGPoint(x: size.width * CGFloat.random(in: 0.5...1), y: size.height * CGFloat.random(in: 0.5...1)))
     path.addLine(to: CGPoint(x: 0, y: size.height))
+    path.closeSubpath()
     
     let shape = CAShapeLayer()
     shape.path = path
     shape.fillColor = backgroundColor.cgColor
     shape.strokeColor = strokeColor.cgColor
     shape.lineWidth = 2 / scale
-    shape.lineJoin = .miter
+    shape.lineJoin = .bevel
 
     let scaleTrans = CATransform3DMakeScale(scale, scale, 1.0)
     shape.transform = scaleTrans
@@ -106,7 +107,7 @@ extension UIView {
                              y: backgroundView.frame.midY - path.boundingBox.height * scale)
     
     backgroundView.layer.addSublayer(shape)
-
+    
     return backgroundView
   }
   
@@ -119,7 +120,7 @@ extension UIView {
     let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
     backgroundView.backgroundColor = backgroundColor
     
-    let rectangle = UIView(frame: CGRect(x: 0, y: 0, width: size.height * scale, height: size.width * scale))
+    let rectangle = UIView(frame: CGRect(x: 0, y: 0, width: size.height * scale * CGFloat.random(in: 0.5...1), height: size.width * scale * CGFloat.random(in: 0.5...1)))
     
     rectangle.center = backgroundView.center
     rectangle.backgroundColor = backgroundColor
@@ -127,7 +128,7 @@ extension UIView {
     rectangle.layer.borderColor = strokeColor.cgColor
     
     backgroundView.addSubview(rectangle)
-    
+        
     return backgroundView
   }
   
@@ -143,25 +144,25 @@ extension UIView {
                           y: size.height - 10))
     
     path.addLine(to: CGPoint(x: size.width,
-                             y: size.height - 10))
+                             y: size.height - 10  * CGFloat.random(in: 0.5...1)))
     
     path.addLine(to: CGPoint(x: size.width * 0.85,
-                             y: (size.height - 10) - size.width * 0.5))
+                             y: (size.height - 10) - size.width * 0.5 * CGFloat.random(in: 0.6...1)))
     
     path.move(to: CGPoint(x: 0,
                           y: size.height - 10))
     
     path.addLine(to: CGPoint(x: size.width * 0.15,
-                             y: (size.height - 10) - size.width * 0.5))
+                             y: (size.height - 10) - size.width * 0.5 * CGFloat.random(in: 0.6...1)))
     
     path.addLine(to: CGPoint(x: size.width * 0.85,
-                             y: (size.height - 10) - size.width * 0.5))
-    
+                             y: (size.height - 10) - size.width * 0.5 * CGFloat.random(in: 0.6...1)))
+        
     let shape = CAShapeLayer()
     shape.path = path
     shape.fillColor = backgroundColor.cgColor
     shape.strokeColor = strokeColor.cgColor
-    shape.lineJoin = .miter
+    shape.lineJoin = .bevel
     shape.lineWidth = 2 / scale
     
     let scaleTrans = CATransform3DMakeScale(scale, scale, 1.0)
@@ -175,7 +176,7 @@ extension UIView {
                              y: backgroundView.frame.midY - path.boundingBox.height * scale)
     
     backgroundView.layer.addSublayer(shape)
-  
+      
     return backgroundView
   }
   

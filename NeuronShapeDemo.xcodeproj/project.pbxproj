@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		912C5CDC2B90DD8B0085431C /* demo-shape-classifier.smodel in Resources */ = {isa = PBXBuildFile; fileRef = 912C5CDB2B90DD8B0085431C /* demo-shape-classifier.smodel */; };
 		913B33C72B8D6580001DA873 /* NeuronShapeDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33C62B8D6580001DA873 /* NeuronShapeDemoApp.swift */; };
 		913B33C92B8D6580001DA873 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33C82B8D6580001DA873 /* ContentView.swift */; };
 		913B33CB2B8D6581001DA873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913B33CA2B8D6581001DA873 /* Assets.xcassets */; };
@@ -21,10 +22,10 @@
 		913B33E82B8D6D4C001DA873 /* Environment+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E72B8D6D4C001DA873 /* Environment+Extensions.swift */; };
 		913B33EA2B8D6DDD001DA873 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E92B8D6DDD001DA873 /* View+Extensions.swift */; };
 		913B33ED2B8D701E001DA873 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33EC2B8D701E001DA873 /* DrawView.swift */; };
-		913B33F52B8EB99B001DA873 /* demo-shape-classifier.smodel in Resources */ = {isa = PBXBuildFile; fileRef = 913B33F42B8EB99B001DA873 /* demo-shape-classifier.smodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		912C5CDB2B90DD8B0085431C /* demo-shape-classifier.smodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "demo-shape-classifier.smodel"; sourceTree = "<group>"; };
 		913B33C32B8D6580001DA873 /* NeuronShapeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuronShapeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		913B33C62B8D6580001DA873 /* NeuronShapeDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuronShapeDemoApp.swift; sourceTree = "<group>"; };
 		913B33C82B8D6580001DA873 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,7 +39,6 @@
 		913B33E72B8D6D4C001DA873 /* Environment+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Extensions.swift"; sourceTree = "<group>"; };
 		913B33E92B8D6DDD001DA873 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		913B33EC2B8D701E001DA873 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
-		913B33F42B8EB99B001DA873 /* demo-shape-classifier.smodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "demo-shape-classifier.smodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +133,7 @@
 		913B33F12B8E6835001DA873 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				913B33F42B8EB99B001DA873 /* demo-shape-classifier.smodel */,
+				912C5CDB2B90DD8B0085431C /* demo-shape-classifier.smodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -205,7 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				913B33CE2B8D6581001DA873 /* Preview Assets.xcassets in Resources */,
-				913B33F52B8EB99B001DA873 /* demo-shape-classifier.smodel in Resources */,
+				912C5CDC2B90DD8B0085431C /* demo-shape-classifier.smodel in Resources */,
 				913B33CB2B8D6581001DA873 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
