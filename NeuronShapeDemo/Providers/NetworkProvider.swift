@@ -128,7 +128,7 @@ public final class NetworkProvider: NetworkProviding, Logger {
     var validation: [DatasetModel] = []
     
     let size = CGSize(width: inputSize.columns, height: inputSize.rows)
-
+    
     ShapeType.allCases.forEach { type in
       
       for _ in 0..<numberOfTraining {
@@ -136,7 +136,7 @@ public final class NetworkProvider: NetworkProviding, Logger {
           training.append(.init(data: shape, label: type.label()))
         }
       }
-        
+      
       for _ in 0..<numberOfValidation {
         if let shape = type.shape(size)?.resizeImage(targetSize: size)?.asGrayScaleTensor() {
           validation.append(.init(data: shape, label: type.label()))
@@ -151,7 +151,6 @@ public final class NetworkProvider: NetworkProviding, Logger {
       log(type: .success, message: "Ready!")
     }
     
-    buildQuickDrawData()
   }
   
   private func buildNetwork(importing: Sequential? = nil) {
@@ -161,14 +160,29 @@ public final class NetworkProvider: NetworkProviding, Logger {
 
       let network = Sequential {
         [
-//          Flatten(inputSize: self.inputSize), // we need a flatten layer because the images are a 2D array
-//          Dense(512,
-//                initializer: initializer),
+//          Flatten(inputSize: self.inputSize),
+//          Dense(512, initializer: initializer),
 //          ReLu(),
 //          Dense(64, initializer: initializer),
 //          ReLu(),
-//          Dense(self.datasetType.outputCount, initializer: initializer),
+//          Dense(ShapeType.allCases.count, initializer: initializer),
 //          Softmax()
+          Conv2d(filterCount: 4,
+                 inputSize: self.inputSize,
+                 padding: .same,
+                 initializer: initializer),
+          ReLu(),
+          MaxPool(),
+          Conv2d(filterCount: 8,
+                 padding: .same,
+                 initializer: initializer),
+          ReLu(),
+          MaxPool(),
+          Flatten(),
+          Dense(64, initializer: initializer),
+          ReLu(),
+          Dense(ShapeType.allCases.count, initializer: initializer),
+          Softmax()
         ]
       }
             
@@ -197,7 +211,7 @@ public final class NetworkProvider: NetworkProviding, Logger {
       let classifier = Classifier(optimizer: optimizer,
                                   epochs: 40,
                                   batchSize: 64,
-                                  accuracyThreshold: 0.96,
+                                  accuracyThreshold: 0.95,
                                   killOnAccuracy: true,
                                   threadWorkers: 8,
                                   log: false)
