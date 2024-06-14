@@ -25,7 +25,7 @@ public final class NetworkProvider: NetworkProviding, Logger {
   private var dataset: (training: [DatasetModel], validation: [DatasetModel])?
   
   private enum DatasetType {
-    case generatedShapes, quickDraw
+    case generatedShapes, quickDraw, mnist
     
     var outputCount: Int {
       switch self {
@@ -33,6 +33,8 @@ public final class NetworkProvider: NetworkProviding, Logger {
         return ShapeType.allCases.count
       case .quickDraw:
         return QuickDrawObject.allCases.count
+      case .mnist:
+        return 10
       }
     }
   }
@@ -107,6 +109,12 @@ public final class NetworkProvider: NetworkProviding, Logger {
   }
   
   // MARK: Private
+  private func buildMNIST() async {
+    let data = MNIST()
+    let result = await data.build()
+    dataset = (result.training, result.val)
+  }
+  
   private func buildQuickDrawData() {
     /*
      1. The current dataset isn't particularly great because it expects perfect shapes each time.
@@ -167,13 +175,13 @@ public final class NetworkProvider: NetworkProviding, Logger {
 //          ReLu(),
 //          Dense(ShapeType.allCases.count, initializer: initializer),
 //          Softmax()
-          Conv2d(filterCount: 4,
+          Conv2d(filterCount: 16,
                  inputSize: self.inputSize,
                  padding: .same,
                  initializer: initializer),
           ReLu(),
           MaxPool(),
-          Conv2d(filterCount: 8,
+          Conv2d(filterCount: 16,
                  padding: .same,
                  initializer: initializer),
           ReLu(),
@@ -181,7 +189,7 @@ public final class NetworkProvider: NetworkProviding, Logger {
           Flatten(),
           Dense(64, initializer: initializer),
           ReLu(),
-          Dense(ShapeType.allCases.count, initializer: initializer),
+          Dense(self.datasetType.outputCount, initializer: initializer),
           Softmax()
         ]
       }
@@ -239,11 +247,14 @@ public final class NetworkProvider: NetworkProviding, Logger {
             self.buildData()
           case .quickDraw:
             self.buildQuickDrawData()
+          case .mnist:
+            await self.buildMNIST()
           }
-        } else {
+          
           self.viewModel.status.ready = true
           self.log(type: .success, message: "Ready!")
         }
+
       }
       
     }
