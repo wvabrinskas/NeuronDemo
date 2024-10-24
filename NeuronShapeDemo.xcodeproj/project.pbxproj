@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -193,8 +193,6 @@
 			mainGroup = 913B33BA2B8D6580001DA873;
 			packageReferences = (
 				913B33DD2B8D69E2001DA873 /* XCRemoteSwiftPackageReference "NeuronDatasets" */,
-				916318EE2B966C8F00FF2D63 /* XCLocalSwiftPackageReference "../NumSwift" */,
-				915F337A2B9A4B4200504233 /* XCLocalSwiftPackageReference "../Neuron" */,
 			);
 			productRefGroup = 913B33C42B8D6580001DA873 /* Products */;
 			projectDirPath = "";
@@ -448,17 +446,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		915F337A2B9A4B4200504233 /* XCLocalSwiftPackageReference "../Neuron" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Neuron;
-		};
-		916318EE2B966C8F00FF2D63 /* XCLocalSwiftPackageReference "../NumSwift" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../NumSwift;
-		};
-/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		913B33DD2B8D69E2001DA873 /* XCRemoteSwiftPackageReference "NeuronDatasets" */ = {
