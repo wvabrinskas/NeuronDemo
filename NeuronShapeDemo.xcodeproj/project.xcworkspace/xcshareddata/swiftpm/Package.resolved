@@ -1,5 +1,5 @@
 {
-  "originHash" : "6ef93f12a6fe8164e51f9ee346a20b5b2175d866dc5e81f1ce5eaf0eb98be415",
+  "originHash" : "557ef1adc68380e0dda49bf6410f97f63bc6c7d8777f7798ba81bd3b0c8330b9",
   "pins" : [
     {
       "identity" : "logger",
@@ -11,12 +11,39 @@
       }
     },
     {
+      "identity" : "neuron",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/wvabrinskas/Neuron.git",
+      "state" : {
+        "revision" : "806de8c00c87026aa9913f557e179a2875d69a22",
+        "version" : "2.0.23"
+      }
+    },
+    {
       "identity" : "neurondatasets",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:wvabrinskas/NeuronDatasets.git",
+      "location" : "https://github.com/wvabrinskas/NeuronDatasets",
       "state" : {
-        "revision" : "1786d764161cc51c067e48360f5cf48731c9b1a9",
-        "version" : "1.0.20"
+        "revision" : "6ea9bea9c765c402a11d8d39fa34903ac2746eb4",
+        "version" : "1.0.23"
+      }
+    },
+    {
+      "identity" : "numswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/wvabrinskas/NumSwift.git",
+      "state" : {
+        "revision" : "34ebaf5f1e2061063ac7b18edc83135ada57ae0f",
+        "version" : "2.0.13"
+      }
+    },
+    {
+      "identity" : "swift-numerics",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-numerics",
+      "state" : {
+        "revision" : "0a5bc04095a675662cf24757cc0640aa2204253b",
+        "version" : "1.0.2"
       }
     }
   ],

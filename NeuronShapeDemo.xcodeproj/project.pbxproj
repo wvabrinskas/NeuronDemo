@@ -14,7 +14,6 @@
 		913B33CE2B8D6581001DA873 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913B33CD2B8D6581001DA873 /* Preview Assets.xcassets */; };
 		913B33D72B8D6622001DA873 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33D62B8D6622001DA873 /* UIView+Extensions.swift */; };
 		913B33D92B8D6682001DA873 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33D82B8D6682001DA873 /* Shape.swift */; };
-		913B33DF2B8D69E2001DA873 /* NeuronDatasets in Frameworks */ = {isa = PBXBuildFile; productRef = 913B33DE2B8D69E2001DA873 /* NeuronDatasets */; };
 		913B33E22B8D6AA5001DA873 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E12B8D6AA5001DA873 /* NetworkProvider.swift */; };
 		913B33E42B8D6B41001DA873 /* NetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E32B8D6B41001DA873 /* NetworkViewModel.swift */; };
 		913B33E62B8D6D23001DA873 /* NetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E52B8D6D23001DA873 /* NetworkView.swift */; };
@@ -23,6 +22,7 @@
 		913B33ED2B8D701E001DA873 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33EC2B8D701E001DA873 /* DrawView.swift */; };
 		915F337C2B9A4B4200504233 /* Neuron in Frameworks */ = {isa = PBXBuildFile; productRef = 915F337B2B9A4B4200504233 /* Neuron */; };
 		916318F02B966C8F00FF2D63 /* NumSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 916318EF2B966C8F00FF2D63 /* NumSwift */; };
+		A49220562CCAD21E0089B1CF /* NeuronDatasets in Frameworks */ = {isa = PBXBuildFile; productRef = A49220552CCAD21E0089B1CF /* NeuronDatasets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				913B33DF2B8D69E2001DA873 /* NeuronDatasets in Frameworks */,
 				916318F02B966C8F00FF2D63 /* NumSwift in Frameworks */,
+				A49220562CCAD21E0089B1CF /* NeuronDatasets in Frameworks */,
 				915F337C2B9A4B4200504233 /* Neuron in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,9 +159,9 @@
 			);
 			name = NeuronShapeDemo;
 			packageProductDependencies = (
-				913B33DE2B8D69E2001DA873 /* NeuronDatasets */,
 				916318EF2B966C8F00FF2D63 /* NumSwift */,
 				915F337B2B9A4B4200504233 /* Neuron */,
+				A49220552CCAD21E0089B1CF /* NeuronDatasets */,
 			);
 			productName = NeuronShapeDemo;
 			productReference = 913B33C32B8D6580001DA873 /* NeuronShapeDemo.app */;
@@ -192,7 +192,7 @@
 			);
 			mainGroup = 913B33BA2B8D6580001DA873;
 			packageReferences = (
-				913B33DD2B8D69E2001DA873 /* XCRemoteSwiftPackageReference "NeuronDatasets" */,
+				A49220542CCAD21E0089B1CF /* XCRemoteSwiftPackageReference "NeuronDatasets" */,
 			);
 			productRefGroup = 913B33C42B8D6580001DA873 /* Products */;
 			projectDirPath = "";
@@ -448,22 +448,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		913B33DD2B8D69E2001DA873 /* XCRemoteSwiftPackageReference "NeuronDatasets" */ = {
+		A49220542CCAD21E0089B1CF /* XCRemoteSwiftPackageReference "NeuronDatasets" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:wvabrinskas/NeuronDatasets.git";
+			repositoryURL = "https://github.com/wvabrinskas/NeuronDatasets";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.19;
+				minimumVersion = 1.0.23;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		913B33DE2B8D69E2001DA873 /* NeuronDatasets */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 913B33DD2B8D69E2001DA873 /* XCRemoteSwiftPackageReference "NeuronDatasets" */;
-			productName = NeuronDatasets;
-		};
 		915F337B2B9A4B4200504233 /* Neuron */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Neuron;
@@ -471,6 +466,11 @@
 		916318EF2B966C8F00FF2D63 /* NumSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NumSwift;
+		};
+		A49220552CCAD21E0089B1CF /* NeuronDatasets */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A49220542CCAD21E0089B1CF /* XCRemoteSwiftPackageReference "NeuronDatasets" */;
+			productName = NeuronDatasets;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

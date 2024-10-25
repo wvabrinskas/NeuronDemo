@@ -10,7 +10,7 @@ import SwiftUI
 
 public struct Prediction {
   var confidence: Float
-  var shape: ShapeType
+  var result: String
 }
 
 @Observable
