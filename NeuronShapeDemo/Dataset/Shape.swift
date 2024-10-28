@@ -10,6 +10,7 @@ import UIKit
 import SwiftUI
 import Neuron
 
+@MainActor
 public enum ShapeType: Int, CaseIterable {
   case circle, rectangle, triangle, trapezoid
   

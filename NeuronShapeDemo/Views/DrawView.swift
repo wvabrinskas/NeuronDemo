@@ -10,7 +10,7 @@ import SwiftUI
 import NumSwift
 
 @Observable
-public final class DrawViewModel {
+public final class DrawViewModel: @unchecked Sendable {
   var clear: Bool
   let gridSize: CGSize
   let pixelSize: Int
@@ -25,104 +25,133 @@ public final class DrawViewModel {
 }
 
 public struct DrawView: View {
-  @Binding var result: [Float]
   var viewModel: DrawViewModel
+  var onSubmit: ([Float]) -> ()
   
-  @State private var values: [Float] = []
-  @State private var debounce: Int = 1
-  
-  private let debounceAmount = 20
+  @State private var drawingCanvasViewModel: DrawingCanvasViewModel = .init(gridSize: .zero)
   
   private var size: CGSize {
-    .init(width: viewModel.gridSize.width * CGFloat(viewModel.pixelSize),
-          height: viewModel.gridSize.height * CGFloat(viewModel.pixelSize))
+    .init(width: viewModel.gridSize.width,
+          height: viewModel.gridSize.height)
   }
   
   public var body: some View {
-    
-    ZStack {
-      Rectangle()
-        .foregroundColor(.black)
-        .frame(width: size.width, height: size.height)
-        .gesture(DragGesture()
-          .onChanged( { value in
-            addNewPoint(value)
-          })
-            .onEnded( { value in
-              viewModel.clear = true
-            }))
-      
-      // draw vertical lines
-      ForEach(0..<Int(viewModel.gridSize.width + 1), id: \.self) { x in
-        Color.white
-          .opacity(0.5)
-          .frame(width: 1)
-          .offset(x: CGFloat(viewModel.pixelSize) * CGFloat(x) - (size.width / 2), y: 0)
+    VStack {
+      DrawingCanvas(viewModel: drawingCanvasViewModel, onSubmit: onSubmit)
+      .frame(width: size.width,
+             height: size.height)
+      .onAppear {
+        drawingCanvasViewModel.gridSize = viewModel.gridSize
       }
+      .scaleEffect(10)
       
-      // draw horizontal lines
-      ForEach(0..<Int(viewModel.gridSize.height + 1), id: \.self) { x in
-        Color.white
-          .opacity(0.5)
-          .frame(width: 1)
-          .offset(x: CGFloat(viewModel.pixelSize) * CGFloat(x) - (size.height / 2), y: 0)
-          .rotationEffect(.degrees(90))
-      }
+      Spacer()
       
-      // draw pixels if needed
-      ForEach(0..<values.count, id: \.self) { v in
-        if values[v] > 0 {
-          Color.white
-            .opacity(CGFloat(values[v]))
-            .frame(width: CGFloat(viewModel.pixelSize), height: CGFloat(viewModel.pixelSize))
-            .position(.init(x: CGFloat(v).truncatingRemainder(dividingBy: viewModel.gridSize.height) * CGFloat(viewModel.pixelSize) + CGFloat(viewModel.pixelSize / 2),
-                            y: round(ceil((CGFloat(v) / viewModel.gridSize.width))) * CGFloat(viewModel.pixelSize) - CGFloat(viewModel.pixelSize / 2)))
+      HStack(spacing: 20) {
+        Button {
+          drawingCanvasViewModel.state = .clear
+        } label: {
+          Image(systemName: "trash")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .foregroundStyle(.red)
+            .fontWeight(.bold)
+            .frame(width: 21)
+        }
+        
+        Button {
+          drawingCanvasViewModel.state = .submit
+        } label: {
+          Image(systemName: "checkmark")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .foregroundStyle(.green)
+            .fontWeight(.bold)
+            .frame(width: 21)
         }
       }
 
     }
-    .onAppear {
-      values = [Float](repeating: 0, count: Int(viewModel.gridSize.width * viewModel.gridSize.height))
-    }
-    .frame(width: size.width,
-           height: size.height)
-    
-    .onChange(of: values) { oldValue, newValue in
-      if debounce % debounceAmount == 0 {
-        // after debounce update the results
-        result = newValue
-        debounce = 1
-      } else {
-        debounce += 1
-      }
-      
-      if values.indexOfMax.1 == 0 {
-        viewModel.clear = false
-      }
-    }
-    .onChange(of: viewModel.clear) { oldValue, newValue in
-      if newValue {
-        // reset values to 0 since we directly set a pixel in the array at an index
-        values = [Float](repeating: 0, count: Int(viewModel.gridSize.width * viewModel.gridSize.height))
-      }
-    }
-  }
-  
-  private func addNewPoint(_ value: DragGesture.Value) {
-    
-    let x = Int(floor(round(value.location.x))) / viewModel.pixelSize
-    let y = Int(floor(round(value.location.y))) / viewModel.pixelSize
-    
-    guard x >= 0, y >= 0, x < Int(viewModel.gridSize.width), y < Int(viewModel.gridSize.height) else { return }
-    
-    let totalRows = Int(viewModel.gridSize.height)
-    let index = (y * totalRows) + x
-    
-    values[index] = 1.0
+    .frame(maxHeight: 200)
+
   }
   
 }
 
+enum DrawingCanvasState {
+  case clear, ready, submit
+}
+
+@Observable
+class DrawingCanvasViewModel {
+  var state: DrawingCanvasState
+  var gridSize: CGSize
+  var paths: [Path]
+  
+  init(state: DrawingCanvasState = .ready,
+       gridSize: CGSize,
+       paths: [Path] = []) {
+    self.state = state
+    self.gridSize = gridSize
+    self.paths = paths
+  }
+}
+
+struct DrawingCanvas: View {
+  @State private var currentPath = Path()
+  
+  @State var viewModel: DrawingCanvasViewModel
+  var onSubmit: ([Float]) -> ()
+  private let lineWidth: CGFloat = 1.0
+  
+  var canvasPallete: some View {
+    Canvas { context, size in
+      for path in viewModel.paths {
+        context.stroke(path, with: .color(.white), lineWidth: lineWidth)
+      }
+      context.stroke(currentPath, with: .color(.white), lineWidth: lineWidth)
+    }
+    .frame(width: viewModel.gridSize.width,
+           height: viewModel.gridSize.width)
+    .gesture(DragGesture()
+      .onChanged { value in
+        currentPath.addLine(to: value.location)
+      }
+      .onEnded { value in
+        viewModel.paths.append(currentPath)
+        currentPath = Path()
+      }
+    )
+  }
+
+  var body: some View {
+    canvasPallete
+    .background(Color.black)
+    .onChange(of: viewModel.state) { new, old in
+      switch new {
+      case .clear:
+        viewModel.paths = []
+      case .submit:
+        let renderer = ImageRenderer(content: canvasPallete)
+        if let image = renderer.uiImage?.asGrayScaleTensor() {
+          let array: [Float] = image.value.fullFlatten()
+          onSubmit(array)
+        }
+        viewModel.paths = []
+      default:
+        break
+      }
+      
+      viewModel.state = .ready
+    }
+    .border(Color.gray, width: 1)
+  }
+}
+
+
 #Preview {
-  DrawView(result: .constant([]), viewModel: .init(pixelSize: 12))
+    DrawView(viewModel: .init(gridSize: .init(width: 28, height: 28),
+                              pixelSize: 6)) { _ in
+      
+    }
 }

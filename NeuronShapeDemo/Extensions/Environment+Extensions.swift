@@ -9,13 +9,12 @@ import Foundation
 import SwiftUI
 
 struct NetworkKey: EnvironmentKey {
-  static let defaultValue: NetworkProviding = NetworkProvider()
+  static let defaultValue = NetworkProvider()
 }
 
 extension EnvironmentValues {
-  var network: NetworkProviding {
+  var network: NetworkProvider {
     get { self[NetworkKey.self] }
     set { self[NetworkKey.self] = newValue }
   }
 }
-

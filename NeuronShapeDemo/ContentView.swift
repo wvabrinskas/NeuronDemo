@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-  @Environment(\.network) var nework
+  @Environment(\.network) var network
   
   var body: some View {
     VStack {
-      NetworkView(viewModel: nework.viewModel)
+      NetworkView(viewModel: network.viewModel)
     }
     .fullscreen()
   }

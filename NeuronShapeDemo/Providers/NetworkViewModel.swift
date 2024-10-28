@@ -14,36 +14,38 @@ public struct Prediction {
 }
 
 @Observable
-public final class NetworkStatus: Equatable, @unchecked Sendable {
+public final class NetworkStatus: Equatable {
   public static func == (lhs: NetworkStatus, rhs: NetworkStatus) -> Bool {
     lhs.ready == rhs.ready &&
-    lhs.training == rhs.training
+    lhs.loading == rhs.loading
   }
   
-  var training: Bool
+  var loading: Bool
   var ready: Bool
   
-  public init(training: Bool = false,
+  public init(loading: Bool = false,
               ready: Bool = false) {
-    self.training = training
+    self.loading = loading
     self.ready = ready
   }
 }
 
 @Observable
-public final class NetworkViewModel: @unchecked Sendable {
+public final class NetworkViewModel {
   public var status: NetworkStatus
   public var text: String
   public var subtext: String
   public var prediction: Prediction?
   public var drawnImage: [Float]
   public var drawViewModel: DrawViewModel
+  public var networkRunState: NetworkRunState
   
   public init(status: NetworkStatus = .init(),
               text: String = "",
               subtext: String = "",
               prediction: Prediction? = nil,
               drawnImage: [Float] = [],
+              networkrunState: NetworkRunState = .idle,
               drawViewModel: DrawViewModel = .init()) {
     self.status = status
     self.text = text
@@ -51,5 +53,6 @@ public final class NetworkViewModel: @unchecked Sendable {
     self.drawnImage = drawnImage
     self.subtext = subtext
     self.drawViewModel = drawViewModel
+    self.networkRunState = networkrunState
   }
 }

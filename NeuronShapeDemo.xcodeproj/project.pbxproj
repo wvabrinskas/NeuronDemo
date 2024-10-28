@@ -17,11 +17,14 @@
 		913B33E22B8D6AA5001DA873 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E12B8D6AA5001DA873 /* NetworkProvider.swift */; };
 		913B33E42B8D6B41001DA873 /* NetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E32B8D6B41001DA873 /* NetworkViewModel.swift */; };
 		913B33E62B8D6D23001DA873 /* NetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E52B8D6D23001DA873 /* NetworkView.swift */; };
-		913B33E82B8D6D4C001DA873 /* Environment+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E72B8D6D4C001DA873 /* Environment+Extensions.swift */; };
 		913B33EA2B8D6DDD001DA873 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33E92B8D6DDD001DA873 /* View+Extensions.swift */; };
 		913B33ED2B8D701E001DA873 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33EC2B8D701E001DA873 /* DrawView.swift */; };
 		915F337C2B9A4B4200504233 /* Neuron in Frameworks */ = {isa = PBXBuildFile; productRef = 915F337B2B9A4B4200504233 /* Neuron */; };
 		916318F02B966C8F00FF2D63 /* NumSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 916318EF2B966C8F00FF2D63 /* NumSwift */; };
+		917703542CCC0DD600A23779 /* Path+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917703532CCC0DCC00A23779 /* Path+Extensions.swift */; };
+		917703562CCC0E6400A23779 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917703552CCC0E5F00A23779 /* UIImage+Extensions.swift */; };
+		9177035A2CD0250000A23779 /* Environment+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917703592CD0250000A23779 /* Environment+Extensions.swift */; };
+		9177035C2CD041DB00A23779 /* demo-quickdraw-classifier.smodel in Resources */ = {isa = PBXBuildFile; fileRef = 9177035B2CD041DB00A23779 /* demo-quickdraw-classifier.smodel */; };
 		A49220562CCAD21E0089B1CF /* NeuronDatasets in Frameworks */ = {isa = PBXBuildFile; productRef = A49220552CCAD21E0089B1CF /* NeuronDatasets */; };
 /* End PBXBuildFile section */
 
@@ -38,9 +41,12 @@
 		913B33E12B8D6AA5001DA873 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		913B33E32B8D6B41001DA873 /* NetworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewModel.swift; sourceTree = "<group>"; };
 		913B33E52B8D6D23001DA873 /* NetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkView.swift; sourceTree = "<group>"; };
-		913B33E72B8D6D4C001DA873 /* Environment+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Extensions.swift"; sourceTree = "<group>"; };
 		913B33E92B8D6DDD001DA873 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		913B33EC2B8D701E001DA873 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		917703532CCC0DCC00A23779 /* Path+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Path+Extensions.swift"; sourceTree = "<group>"; };
+		917703552CCC0E5F00A23779 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		917703592CD0250000A23779 /* Environment+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Extensions.swift"; sourceTree = "<group>"; };
+		9177035B2CD041DB00A23779 /* demo-quickdraw-classifier.smodel */ = {isa = PBXFileReference; lastKnownFileType = text; path = "demo-quickdraw-classifier.smodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +116,10 @@
 		913B33D52B8D6616001DA873 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				917703552CCC0E5F00A23779 /* UIImage+Extensions.swift */,
+				917703532CCC0DCC00A23779 /* Path+Extensions.swift */,
 				913B33D62B8D6622001DA873 /* UIView+Extensions.swift */,
-				913B33E72B8D6D4C001DA873 /* Environment+Extensions.swift */,
+				917703592CD0250000A23779 /* Environment+Extensions.swift */,
 				913B33E92B8D6DDD001DA873 /* View+Extensions.swift */,
 			);
 			path = Extensions;
@@ -137,6 +145,7 @@
 		913B33F12B8E6835001DA873 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9177035B2CD041DB00A23779 /* demo-quickdraw-classifier.smodel */,
 				912C5CDB2B90DD8B0085431C /* demo-shape-classifier.smodel */,
 			);
 			path = Resources;
@@ -210,6 +219,7 @@
 			files = (
 				913B33CE2B8D6581001DA873 /* Preview Assets.xcassets in Resources */,
 				912C5CDC2B90DD8B0085431C /* demo-shape-classifier.smodel in Resources */,
+				9177035C2CD041DB00A23779 /* demo-quickdraw-classifier.smodel in Resources */,
 				913B33CB2B8D6581001DA873 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,13 +234,15 @@
 				913B33D72B8D6622001DA873 /* UIView+Extensions.swift in Sources */,
 				913B33E42B8D6B41001DA873 /* NetworkViewModel.swift in Sources */,
 				913B33E62B8D6D23001DA873 /* NetworkView.swift in Sources */,
+				917703562CCC0E6400A23779 /* UIImage+Extensions.swift in Sources */,
 				913B33C92B8D6580001DA873 /* ContentView.swift in Sources */,
 				913B33EA2B8D6DDD001DA873 /* View+Extensions.swift in Sources */,
 				913B33C72B8D6580001DA873 /* NeuronShapeDemoApp.swift in Sources */,
+				9177035A2CD0250000A23779 /* Environment+Extensions.swift in Sources */,
 				913B33ED2B8D701E001DA873 /* DrawView.swift in Sources */,
 				913B33D92B8D6682001DA873 /* Shape.swift in Sources */,
 				913B33E22B8D6AA5001DA873 /* NetworkProvider.swift in Sources */,
-				913B33E82B8D6D4C001DA873 /* Environment+Extensions.swift in Sources */,
+				917703542CCC0DD600A23779 /* Path+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +397,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -419,7 +431,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
