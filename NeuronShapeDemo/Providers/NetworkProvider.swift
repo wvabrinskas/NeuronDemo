@@ -153,8 +153,10 @@ public final class NetworkProvider: NetworkProviding, @preconcurrency Logger, @u
     }
     
     self.viewModel.status.loading = true
-    // we cannot run fit using `Task.detatched` because it throws a runtime exec error with Swift 6 Concurrency when calling the metric reporting blocks.
-    classifier.fit(dataset.training, dataset.validation)
+    
+    Task.detached { @Sendable in
+      classifier.fit(dataset.training, dataset.validation)
+    }
   }
   
   func importModel() async {
@@ -271,9 +273,8 @@ public final class NetworkProvider: NetworkProviding, @preconcurrency Logger, @u
       
       let accuracy = metrics[.accuracy] ?? 0
       let loss = metrics[.loss] ?? 0
-      self.viewModel.text = String(format: "Loss: %.3f", loss)
-      self.viewModel.subtext = String(format: "Acc.: %.1f %", accuracy)
-  
+      viewModel.text = String(format: "Loss: %.3f", loss)
+      viewModel.subtext = String(format: "Acc.: %.1f %", accuracy)
     }
     
     let classifier = Classifier(optimizer: optimizer,
@@ -284,22 +285,22 @@ public final class NetworkProvider: NetworkProviding, @preconcurrency Logger, @u
                                 threadWorkers: 8,
                                 log: false)
     
-    classifier.onEpochCompleted = {  [weak self] in
+    classifier.onEpochCompleted = { @Sendable @MainActor [weak self] in
       guard let self else { return }
       
       let accuracy = optimizer.metricsReporter?.valAccuracy ?? 0
       let loss = optimizer.metricsReporter?.valLoss ?? 0
       
-      Task { @MainActor in
-        self.viewModel.text = String(format: "Loss: %.3f", loss)
-        self.viewModel.subtext = String(format: "Acc.: %.1f %", accuracy)
-      }
+      viewModel.text = String(format: "Loss: %.3f", loss)
+      viewModel.subtext = String(format: "Acc.: %.1f %", accuracy)
     }
     
-    classifier.onAccuracyReached = { [weak self] in
-      self?.viewModel.status.loading = false
-      self?.log(type: .success, message: "Training complete!")
-      self?.log(type: .message, message: "\(classifier.export(compress: true)?.absoluteString)")
+    classifier.onAccuracyReached = { @Sendable @MainActor [weak self] in
+      guard let self else { return }
+      
+      viewModel.status.loading = false
+      log(type: .success, message: "Training complete!")
+      log(type: .message, message: "\(classifier.export(compress: true)?.absoluteString)")
     }
     
     self.classifier = classifier
