@@ -50,8 +50,8 @@ public final class NetworkProvider: NetworkProviding, @preconcurrency Logger, @u
         return .demoShapeClassifier
       case .quickDraw:
         return .demoQuickDrawClassifier
-      default:
-        return .unknown
+      case .mnist:
+        return .demoMnistClassifier
       }
     }
   }
@@ -66,12 +66,13 @@ public final class NetworkProvider: NetworkProviding, @preconcurrency Logger, @u
           depth: 1)
   }
   
-  private let datasetType: DatasetType = .quickDraw
+  private let datasetType: DatasetType = .mnist
   
   private enum ImportModel: String {
     case unknown
     case demoShapeClassifier = "demo-shape-classifier"
     case demoQuickDrawClassifier = "demo-quickdraw-classifier"
+    case demoMnistClassifier = "demo-mnist-classifier"
     
     var url: URL? {
       Bundle.main.url(forResource: rawValue, withExtension: "smodel")
@@ -107,7 +108,7 @@ public final class NetworkProvider: NetworkProviding, @preconcurrency Logger, @u
       guard let classifier = await self.classifier,
             let prediction = classifier.optimizer.predict([grayScaleImage]).first else { return }
       
-      let max = prediction.value.flatten().indexOfMax
+      let max = prediction.storage.indexOfMax
       let index = max.0
       let confidence = max.1
       
@@ -135,6 +136,12 @@ public final class NetworkProvider: NetworkProviding, @preconcurrency Logger, @u
       viewModel.subtext = String(format: "%.1f%", confidence * 100)
       viewModel.prediction = .init(confidence: confidence, result: object.rawValue)
     case .mnist:
+      let allCases = Array((0..<10))
+      guard let object = allCases[safe: Int(index)] else { return }
+      
+      viewModel.text = "\(object)"
+      viewModel.subtext = String(format: "%.1f%", confidence * 100)
+      viewModel.prediction = .init(confidence: confidence, result: "\(object)")
       break
     }
     
@@ -183,7 +190,7 @@ public final class NetworkProvider: NetworkProviding, @preconcurrency Logger, @u
   private func buildQuickDrawData() async {
     let dataset = QuickDrawDataset(objectsToGet: .square, .circle, .triangle,
                                    trainingCount: 10000,
-                                   validationCount: 500)
+                                   validationSplit: 0.2)
     
     let result = await dataset.build()
     
@@ -257,7 +264,7 @@ public final class NetworkProvider: NetworkProviding, @preconcurrency Logger, @u
       ]
     }
     
-    let optimizer = Adam(importing ?? network, learningRate: 0.001)
+    let optimizer = Adam(importing ?? network, learningRate: 0.001, batchSize: 64)
     
     let reporter = MetricsReporter(frequency: 30,
                                    metricsToGather: [.loss,
@@ -282,7 +289,6 @@ public final class NetworkProvider: NetworkProviding, @preconcurrency Logger, @u
                                 batchSize: 64,
                                 accuracyThreshold: .init(value: 0.97, averageCount: 3),
                                 killOnAccuracy: true,
-                                threadWorkers: 8,
                                 log: false)
     
     classifier.onEpochCompleted = { @Sendable @MainActor [weak self] in

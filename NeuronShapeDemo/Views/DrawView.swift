@@ -134,7 +134,7 @@ struct DrawingCanvas: View {
       case .submit:
         let renderer = ImageRenderer(content: canvasPallete)
         if let image = renderer.uiImage?.asGrayScaleTensor() {
-          let array: [Float] = image.value.fullFlatten()
+          let array: [Float] = Array(image.storage)
           onSubmit(array)
         }
         viewModel.paths = []

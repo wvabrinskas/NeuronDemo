@@ -27,7 +27,7 @@ extension View {
       view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
     }
     
-    result(image.asRGBTensor().value.fullFlatten())
+    result(Array(image.asRGBTensor().storage))
     
     return self
   }
