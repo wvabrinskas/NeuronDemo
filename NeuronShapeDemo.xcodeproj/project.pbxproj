@@ -21,13 +21,13 @@
 		913B33ED2B8D701E001DA873 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B33EC2B8D701E001DA873 /* DrawView.swift */; };
 		915F337C2B9A4B4200504233 /* Neuron in Frameworks */ = {isa = PBXBuildFile; productRef = 915F337B2B9A4B4200504233 /* Neuron */; };
 		916318F02B966C8F00FF2D63 /* NumSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 916318EF2B966C8F00FF2D63 /* NumSwift */; };
-		917228F22F4E8C7E001C300F /* demo-mnist-classifier.smodel in Resources */ = {isa = PBXBuildFile; fileRef = 917228F12F4E8C7E001C300F /* demo-mnist-classifier.smodel */; };
 		917228F52F4E8E36001C300F /* NeuronDatasets in Frameworks */ = {isa = PBXBuildFile; productRef = 917228F42F4E8E36001C300F /* NeuronDatasets */; };
 		917229002F4F3E60001C300F /* Neuron in Frameworks */ = {isa = PBXBuildFile; productRef = 917228FF2F4F3E60001C300F /* Neuron */; };
 		917703542CCC0DD600A23779 /* Path+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917703532CCC0DCC00A23779 /* Path+Extensions.swift */; };
 		917703562CCC0E6400A23779 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917703552CCC0E5F00A23779 /* UIImage+Extensions.swift */; };
 		9177035A2CD0250000A23779 /* Environment+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917703592CD0250000A23779 /* Environment+Extensions.swift */; };
 		9177035C2CD041DB00A23779 /* demo-quickdraw-classifier.smodel in Resources */ = {isa = PBXBuildFile; fileRef = 9177035B2CD041DB00A23779 /* demo-quickdraw-classifier.smodel */; };
+		91F730442F70BA0D00C053C6 /* mnist.smodel in Resources */ = {isa = PBXBuildFile; fileRef = 91F730432F70BA0D00C053C6 /* mnist.smodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,11 +45,11 @@
 		913B33E52B8D6D23001DA873 /* NetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkView.swift; sourceTree = "<group>"; };
 		913B33E92B8D6DDD001DA873 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		913B33EC2B8D701E001DA873 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
-		917228F12F4E8C7E001C300F /* demo-mnist-classifier.smodel */ = {isa = PBXFileReference; lastKnownFileType = text; path = "demo-mnist-classifier.smodel"; sourceTree = "<group>"; };
 		917703532CCC0DCC00A23779 /* Path+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Path+Extensions.swift"; sourceTree = "<group>"; };
 		917703552CCC0E5F00A23779 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		917703592CD0250000A23779 /* Environment+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+Extensions.swift"; sourceTree = "<group>"; };
 		9177035B2CD041DB00A23779 /* demo-quickdraw-classifier.smodel */ = {isa = PBXFileReference; lastKnownFileType = text; path = "demo-quickdraw-classifier.smodel"; sourceTree = "<group>"; };
+		91F730432F70BA0D00C053C6 /* mnist.smodel */ = {isa = PBXFileReference; lastKnownFileType = text; path = mnist.smodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				9177035B2CD041DB00A23779 /* demo-quickdraw-classifier.smodel */,
-				917228F12F4E8C7E001C300F /* demo-mnist-classifier.smodel */,
+				91F730432F70BA0D00C053C6 /* mnist.smodel */,
 				912C5CDB2B90DD8B0085431C /* demo-shape-classifier.smodel */,
 			);
 			path = Resources;
@@ -225,8 +225,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				913B33CE2B8D6581001DA873 /* Preview Assets.xcassets in Resources */,
-				917228F22F4E8C7E001C300F /* demo-mnist-classifier.smodel in Resources */,
 				912C5CDC2B90DD8B0085431C /* demo-shape-classifier.smodel in Resources */,
+				91F730442F70BA0D00C053C6 /* mnist.smodel in Resources */,
 				9177035C2CD041DB00A23779 /* demo-quickdraw-classifier.smodel in Resources */,
 				913B33CB2B8D6581001DA873 /* Assets.xcassets in Resources */,
 			);

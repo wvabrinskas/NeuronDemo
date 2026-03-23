@@ -72,7 +72,7 @@ public final class NetworkProvider: NetworkProviding, @preconcurrency Logger, @u
     case unknown
     case demoShapeClassifier = "demo-shape-classifier"
     case demoQuickDrawClassifier = "demo-quickdraw-classifier"
-    case demoMnistClassifier = "demo-mnist-classifier"
+    case demoMnistClassifier = "mnist"
     
     var url: URL? {
       Bundle.main.url(forResource: rawValue, withExtension: "smodel")
